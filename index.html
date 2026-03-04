@@ -9,7 +9,6 @@
 <style>
   :root {
     --navy: #070d1f;
-    --navy2: #0d1630;
     --cyan: #00e5c8;
     --pink: #ff3e8e;
     --blue: #4f8cff;
@@ -18,697 +17,160 @@
     --card: rgba(255,255,255,0.04);
     --border: rgba(255,255,255,0.07);
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--navy);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-
-  /* HEX GRID BACKGROUND */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='52' viewBox='0 0 60 52'%3E%3Cpath d='M15 0 L45 0 L60 26 L45 52 L15 52 L0 26Z' fill='none' stroke='rgba(79,140,255,0.06)' stroke-width='1'/%3E%3C/svg%3E");
-    background-size: 60px 52px;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* GLOW ORBS */
-  .orb {
-    position: fixed;
-    border-radius: 50%;
-    filter: blur(120px);
-    opacity: 0.12;
-    pointer-events: none;
-    z-index: 0;
-  }
+  body { background: var(--navy); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='52' viewBox='0 0 60 52'%3E%3Cpath d='M15 0 L45 0 L60 26 L45 52 L15 52 L0 26Z' fill='none' stroke='rgba(79,140,255,0.06)' stroke-width='1'/%3E%3C/svg%3E"); background-size: 60px 52px; pointer-events: none; z-index: 0; }
+  .orb { position: fixed; border-radius: 50%; filter: blur(120px); opacity: 0.12; pointer-events: none; z-index: 0; }
   .orb-1 { width: 600px; height: 600px; background: var(--cyan); top: -200px; left: -200px; }
   .orb-2 { width: 500px; height: 500px; background: var(--pink); bottom: -100px; right: -100px; }
 
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 20px 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(7,13,31,0.8);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    text-decoration: none;
-  }
-
-  .nav-logo img {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-  }
-
-  .nav-logo-text {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    color: white;
-    line-height: 1.2;
-  }
-
-  .nav-logo-text span {
-    display: block;
-    font-size: 11px;
-    font-weight: 400;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    transition: color 0.2s;
-    letter-spacing: 0.03em;
-  }
-
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; background: rgba(7,13,31,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+  .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .nav-logo img { width: 44px; height: 44px; border-radius: 50%; }
+  .nav-logo-text { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; color: white; line-height: 1.2; }
+  .nav-logo-text span { display: block; font-size: 11px; font-weight: 400; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
   .nav-links a:hover { color: white; }
+  .nav-cta { background: linear-gradient(135deg, var(--cyan), var(--blue)); color: var(--navy) !important; padding: 9px 20px; border-radius: 8px; font-weight: 600 !important; font-size: 13px !important; }
 
-  .nav-cta {
-    background: linear-gradient(135deg, var(--cyan), var(--blue));
-    color: var(--navy) !important;
-    padding: 9px 20px;
-    border-radius: 8px;
-    font-weight: 600 !important;
-    font-size: 13px !important;
-  }
+  section { position: relative; z-index: 1; }
 
-  /* SECTIONS */
-  section {
-    position: relative;
-    z-index: 1;
-  }
-
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 120px 24px 80px;
-  }
-
+  .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 120px 24px 80px; }
   .hero-inner { max-width: 780px; }
-
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(0,229,200,0.08);
-    border: 1px solid rgba(0,229,200,0.2);
-    border-radius: 100px;
-    padding: 7px 18px;
-    font-size: 12px;
-    color: var(--cyan);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin-bottom: 36px;
-  }
-
-  .hero-badge::before {
-    content: '';
-    width: 7px; height: 7px;
-    background: var(--cyan);
-    border-radius: 50%;
-    box-shadow: 0 0 8px var(--cyan);
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.8); }
-  }
-
-  .hero-logo {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    margin: 0 auto 40px;
-    display: block;
-    filter: drop-shadow(0 0 40px rgba(0,229,200,0.3));
-    animation: float 6s ease-in-out infinite;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-12px); }
-  }
-
-  .hero h1 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(42px, 7vw, 80px);
-    font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    color: white;
-    margin-bottom: 8px;
-  }
-
-  .hero h1 .grad {
-    background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 50%, var(--pink) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .hero-region {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(18px, 3vw, 26px);
-    font-weight: 600;
-    color: var(--muted);
-    margin-bottom: 28px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-
-  .hero-desc {
-    font-size: 18px;
-    color: var(--text);
-    max-width: 560px;
-    margin: 0 auto 48px;
-    line-height: 1.7;
-    opacity: 0.8;
-  }
-
-  .hero-pills {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 52px;
-  }
-
-  .pill {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    padding: 8px 20px;
-    font-size: 14px;
-    color: var(--text);
-    font-weight: 500;
-  }
-
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,229,200,0.08); border: 1px solid rgba(0,229,200,0.2); border-radius: 100px; padding: 7px 18px; font-size: 12px; color: var(--cyan); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; margin-bottom: 36px; }
+  .hero-badge::before { content: ''; width: 7px; height: 7px; background: var(--cyan); border-radius: 50%; box-shadow: 0 0 8px var(--cyan); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.8)} }
+  .hero-logo { width: 140px; height: 140px; border-radius: 50%; margin: 0 auto 40px; display: block; filter: drop-shadow(0 0 40px rgba(0,229,200,0.3)); animation: float 6s ease-in-out infinite; }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+  .hero h1 { font-family: 'Syne', sans-serif; font-size: clamp(42px,7vw,80px); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; color: white; margin-bottom: 8px; }
+  .hero h1 .grad { background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 50%, var(--pink) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-region { font-family: 'Syne', sans-serif; font-size: clamp(18px,3vw,26px); font-weight: 600; color: var(--muted); margin-bottom: 28px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .hero-desc { font-size: 18px; color: var(--text); max-width: 560px; margin: 0 auto 48px; line-height: 1.7; opacity: 0.8; }
+  .hero-pills { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 52px; }
+  .pill { background: var(--card); border: 1px solid var(--border); border-radius: 100px; padding: 8px 20px; font-size: 14px; color: var(--text); font-weight: 500; }
   .pill-cyan { border-color: rgba(0,229,200,0.3); color: var(--cyan); }
   .pill-pink { border-color: rgba(255,62,142,0.3); color: var(--pink); }
   .pill-blue { border-color: rgba(79,140,255,0.3); color: var(--blue); }
+  .hero-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--cyan), var(--blue)); color: var(--navy); font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; padding: 14px 32px; border-radius: 12px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 8px 32px rgba(0,229,200,0.25); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 48px rgba(0,229,200,0.35); }
 
-  .hero-actions {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
+  .stats-bar { padding: 32px 48px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); display: flex; justify-content: center; gap: 64px; flex-wrap: wrap; position: relative; z-index: 1; }
+  .stat { text-align: center; }
+  .stat-num { font-family: 'Syne', sans-serif; font-size: 36px; font-weight: 800; background: linear-gradient(135deg, var(--cyan), var(--pink)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; }
+  .stat-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 6px; }
 
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: linear-gradient(135deg, var(--cyan), var(--blue));
-    color: var(--navy);
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    padding: 14px 32px;
-    border-radius: 12px;
-    text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 8px 32px rgba(0,229,200,0.25);
-  }
+  .section-wrap { padding: 100px 48px; max-width: 1100px; margin: 0 auto; }
+  .section-tag { font-size: 11px; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; margin-bottom: 16px; }
+  .section-title { font-family: 'Syne', sans-serif; font-size: clamp(28px,4vw,44px); font-weight: 800; color: white; line-height: 1.1; margin-bottom: 20px; letter-spacing: -0.02em; }
+  .divider { width: 100%; height: 1px; background: var(--border); max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
 
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 16px 48px rgba(0,229,200,0.35);
-  }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-top: 64px; }
+  .about-text p { font-size: 17px; color: var(--text); opacity: 0.8; margin-bottom: 20px; line-height: 1.8; }
+  .about-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .pillar-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px; transition: border-color 0.2s, transform 0.2s; }
+  .pillar-card:hover { border-color: rgba(0,229,200,0.2); transform: translateY(-3px); }
+  .pillar-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+  .pillar-card h3 { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; color: white; margin-bottom: 8px; }
+  .pillar-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
-  .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: transparent;
-    color: white;
-    font-family: 'Syne', sans-serif;
-    font-weight: 600;
-    font-size: 15px;
-    padding: 14px 32px;
-    border-radius: 12px;
-    text-decoration: none;
-    border: 1px solid var(--border);
-    transition: border-color 0.2s, background 0.2s;
-  }
+  .viktor-grid { display: grid; grid-template-columns: 380px 1fr; gap: 72px; align-items: center; margin-top: 64px; }
+  .viktor-photo-wrap { position: relative; }
+  .viktor-photo { width: 100%; border-radius: 24px; display: block; filter: grayscale(20%) contrast(1.05); box-shadow: 0 32px 80px rgba(0,0,0,0.5); }
+  .viktor-photo-wrap::before { content: ''; position: absolute; inset: -2px; background: linear-gradient(135deg, var(--cyan), var(--pink)); border-radius: 26px; z-index: -1; opacity: 0.4; }
+  .viktor-name { font-family: 'Syne', sans-serif; font-size: 38px; font-weight: 800; color: white; margin-bottom: 6px; letter-spacing: -0.02em; }
+  .viktor-title { font-size: 14px; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 32px; }
+  .viktor-text p { font-size: 17px; color: var(--text); opacity: 0.82; margin-bottom: 20px; line-height: 1.85; }
+  .viktor-text strong { color: white; font-weight: 600; }
+  .viktor-links { display: flex; gap: 16px; margin-top: 32px; flex-wrap: wrap; }
+  .viktor-link { display: inline-flex; align-items: center; gap: 8px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 10px 20px; font-size: 13px; color: var(--text); text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+  .viktor-link:hover { border-color: rgba(0,229,200,0.3); color: var(--cyan); }
 
-  .btn-secondary:hover {
-    border-color: rgba(255,255,255,0.2);
-    background: rgba(255,255,255,0.04);
-  }
-
-  /* SCROLL INDICATOR */
-  .scroll-hint {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    color: var(--muted);
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  .scroll-line {
-    width: 1px;
-    height: 40px;
-    background: linear-gradient(to bottom, var(--cyan), transparent);
-    animation: scrolldown 2s infinite;
-  }
-
-  @keyframes scrolldown {
-    0% { opacity: 0; transform: scaleY(0); transform-origin: top; }
-    50% { opacity: 1; transform: scaleY(1); }
-    100% { opacity: 0; transform: scaleY(1); transform-origin: bottom; }
-  }
-
-  /* STATS BAR */
-  .stats-bar {
-    padding: 32px 48px;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    justify-content: center;
-    gap: 64px;
-    flex-wrap: wrap;
-  }
-
-  .stat {
-    text-align: center;
-  }
-
-  .stat-num {
-    font-family: 'Syne', sans-serif;
-    font-size: 36px;
-    font-weight: 800;
-    background: linear-gradient(135deg, var(--cyan), var(--pink));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1;
-  }
-
-  .stat-label {
-    font-size: 12px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-top: 6px;
-  }
-
-  /* ABOUT */
-  .about {
-    padding: 100px 48px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .section-tag {
-    font-size: 11px;
-    color: var(--cyan);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-weight: 600;
-    margin-bottom: 16px;
-  }
-
-  .section-title {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(28px, 4vw, 44px);
-    font-weight: 800;
-    color: white;
-    line-height: 1.1;
-    margin-bottom: 20px;
-    letter-spacing: -0.02em;
-  }
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: center;
-    margin-top: 64px;
-  }
-
-  .about-text p {
-    font-size: 17px;
-    color: var(--text);
-    opacity: 0.8;
-    margin-bottom: 20px;
-    line-height: 1.8;
-  }
-
-  .about-pillars {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
-  .pillar-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 28px 24px;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-
-  .pillar-card:hover {
-    border-color: rgba(0,229,200,0.2);
-    transform: translateY(-3px);
-  }
-
-  .pillar-icon {
-    font-size: 28px;
-    margin-bottom: 14px;
-    display: block;
-  }
-
-  .pillar-card h3 {
-    font-family: 'Syne', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 8px;
-  }
-
-  .pillar-card p {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.6;
-  }
-
-  /* EVENTS */
-  .events {
-    padding: 100px 48px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .events-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 24px;
-    margin-top: 52px;
-  }
-
-  .event-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 32px;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-
-  .event-card:hover {
-    border-color: rgba(0,229,200,0.15);
-    transform: translateY(-4px);
-  }
-
-  .event-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--cyan), var(--pink));
-    opacity: 0;
-    transition: opacity 0.2s;
-  }
-
+  .events-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); gap: 24px; margin-top: 52px; }
+  .event-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 32px; position: relative; overflow: hidden; transition: border-color 0.2s, transform 0.2s; }
+  .event-card:hover { border-color: rgba(0,229,200,0.15); transform: translateY(-4px); }
+  .event-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--cyan), var(--pink)); opacity: 0; transition: opacity 0.2s; }
   .event-card:hover::before { opacity: 1; }
+  .event-date { font-size: 11px; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .event-date::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); }
+  .event-title { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: white; margin-bottom: 10px; line-height: 1.3; }
+  .event-desc { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 16px; }
+  .event-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .event-tag { font-size: 12px; padding: 5px 12px; border-radius: 6px; background: rgba(255,255,255,0.05); color: var(--muted); }
+  .event-tag-cyan { background: rgba(0,229,200,0.08); color: var(--cyan); }
+  .event-links { display: flex; gap: 10px; flex-wrap: wrap; }
+  .event-link { font-size: 12px; color: var(--muted); text-decoration: none; display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border: 1px solid var(--border); border-radius: 6px; transition: color 0.2s, border-color 0.2s; }
+  .event-link:hover { color: var(--cyan); border-color: rgba(0,229,200,0.3); }
+  .event-participants { font-size: 12px; color: var(--muted); margin-top: 12px; }
 
-  .event-date {
-    font-size: 11px;
-    color: var(--cyan);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-weight: 600;
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  .telegram { padding: 100px 48px; position: relative; z-index: 1; }
+  .telegram-inner { max-width: 1100px; margin: 0 auto; background: var(--card); border: 1px solid var(--border); border-radius: 28px; padding: 72px 64px; display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center; position: relative; overflow: hidden; }
+  .telegram-inner::before { content: ''; position: absolute; inset: -1px; background: linear-gradient(135deg, rgba(0,229,200,0.15), transparent, rgba(255,62,142,0.1)); border-radius: 28px; z-index: -1; }
+  .telegram-content h2 { font-family: 'Syne', sans-serif; font-size: clamp(28px,4vw,42px); font-weight: 800; color: white; margin-bottom: 16px; letter-spacing: -0.02em; }
+  .telegram-content p { font-size: 17px; color: var(--text); opacity: 0.75; margin-bottom: 32px; max-width: 500px; line-height: 1.7; }
+  .telegram-channels { display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; }
+  .channel-item { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--text); }
+  .channel-item::before { content: '→'; color: var(--cyan); font-weight: bold; }
+  .qr-box { background: white; border-radius: 20px; padding: 24px; text-align: center; flex-shrink: 0; }
+  .qr-box img { width: 160px; height: 160px; display: block; }
+  .qr-label { margin-top: 12px; font-size: 12px; font-weight: 700; color: var(--navy); letter-spacing: 0.05em; }
+
+  /* NETWORK PARTNERS */
+  .partners-wrap { padding: 80px 48px; max-width: 1100px; margin: 0 auto; }
+  .partners-grid { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 48px; align-items: stretch; }
+  .partner-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 32px; flex: 1; min-width: 220px; display: flex; flex-direction: column; gap: 10px; transition: border-color 0.2s, transform 0.2s; text-decoration: none; }
+  .partner-card:hover { border-color: rgba(0,229,200,0.2); transform: translateY(-3px); }
+  .partner-role { font-size: 10px; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; }
+  .partner-name { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; color: white; }
+  .partner-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .partner-placeholder { background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 32px; flex: 1; min-width: 220px; display: flex; flex-direction: column; gap: 8px; }
+  .partner-placeholder .partner-role { color: var(--muted); }
+  .partner-placeholder .partner-name { color: var(--muted); font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 600; }
+  .partner-placeholder .partner-desc { font-size: 12px; color: var(--muted); opacity: 0.6; font-style: italic; }
+
+  /* CONTACT */
+  .contact-wrap { padding: 100px 48px; max-width: 1100px; margin: 0 auto; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 52px; }
+  .contact-info { display: flex; flex-direction: column; gap: 32px; }
+  .contact-row { display: flex; flex-direction: column; gap: 6px; }
+  .contact-label { font-size: 10px; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; }
+  .contact-value { font-size: 17px; color: white; font-weight: 500; }
+  .contact-value a { color: white; text-decoration: none; transition: color 0.2s; }
+  .contact-value a:hover { color: var(--cyan); }
+  .contact-text { font-size: 16px; color: var(--text); opacity: 0.75; line-height: 1.8; }
+  .contact-text p { margin-bottom: 16px; }
+  .contact-cta { display: inline-flex; align-items: center; gap: 10px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px 28px; font-size: 14px; font-weight: 600; color: white; text-decoration: none; transition: border-color 0.2s, color 0.2s, background 0.2s; margin-top: 8px; }
+  .contact-cta:hover { border-color: rgba(0,229,200,0.3); color: var(--cyan); background: rgba(0,229,200,0.05); }
+
+  footer { padding: 48px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+  .footer-logo { display: flex; align-items: center; gap: 12px; }
+  .footer-logo img { width: 36px; height: 36px; border-radius: 50%; opacity: 0.8; }
+  .footer-logo span { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; color: var(--muted); }
+  .footer-copy { font-size: 12px; color: var(--muted); }
+  .footer-copy a { color: var(--cyan); text-decoration: none; }
+  .footer-copy a:hover { text-decoration: underline; }
+
+  @media (max-width: 900px) {
+    .viktor-grid { grid-template-columns: 1fr; gap: 40px; }
+    .viktor-photo { max-width: 320px; margin: 0 auto; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 48px; }
   }
-
-  .event-date::before {
-    content: '';
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--cyan);
-  }
-
-  .event-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 10px;
-    line-height: 1.3;
-  }
-
-  .event-desc {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-
-  .event-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .event-tag {
-    font-size: 12px;
-    padding: 5px 12px;
-    border-radius: 6px;
-    background: rgba(255,255,255,0.05);
-    color: var(--muted);
-  }
-
-  .event-tag-cyan {
-    background: rgba(0,229,200,0.08);
-    color: var(--cyan);
-  }
-
-  /* TELEGRAM */
-  .telegram {
-    padding: 100px 48px;
-  }
-
-  .telegram-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 28px;
-    padding: 72px 64px;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 64px;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .telegram-inner::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    background: linear-gradient(135deg, rgba(0,229,200,0.15), transparent, rgba(255,62,142,0.1));
-    border-radius: 28px;
-    z-index: -1;
-  }
-
-  .telegram-content h2 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(28px, 4vw, 42px);
-    font-weight: 800;
-    color: white;
-    margin-bottom: 16px;
-    letter-spacing: -0.02em;
-  }
-
-  .telegram-content p {
-    font-size: 17px;
-    color: var(--text);
-    opacity: 0.75;
-    margin-bottom: 32px;
-    max-width: 500px;
-    line-height: 1.7;
-  }
-
-  .telegram-channels {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 36px;
-  }
-
-  .channel-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 14px;
-    color: var(--text);
-  }
-
-  .channel-item::before {
-    content: '→';
-    color: var(--cyan);
-    font-weight: bold;
-  }
-
-  .qr-box {
-    background: white;
-    border-radius: 20px;
-    padding: 24px;
-    text-align: center;
-    flex-shrink: 0;
-  }
-
-  .qr-box img {
-    width: 160px;
-    height: 160px;
-    display: block;
-  }
-
-  .qr-label {
-    margin-top: 12px;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--navy);
-    letter-spacing: 0.05em;
-  }
-
-  /* FOOTER */
-  footer {
-    padding: 48px;
-    border-top: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 24px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .footer-logo img {
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    opacity: 0.8;
-  }
-
-  .footer-logo span {
-    font-family: 'Syne', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--muted);
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-  }
-
-  .footer-links a {
-    font-size: 13px;
-    color: var(--muted);
-    text-decoration: none;
-  }
-
-  .footer-links a:hover { color: white; }
-
-  .footer-copy {
-    font-size: 12px;
-    color: var(--muted);
-  }
-
-  /* DIVIDER */
-  .divider {
-    width: 100%;
-    height: 1px;
-    background: var(--border);
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  /* RESPONSIVE */
   @media (max-width: 768px) {
     nav { padding: 16px 24px; }
     .nav-links { display: none; }
     .stats-bar { gap: 32px; padding: 24px; }
-    .about, .events, .telegram { padding: 60px 24px; }
-    .about-grid { grid-template-columns: 1fr; gap: 40px; }
-    .about-pillars { grid-template-columns: 1fr; }
+    .section-wrap, .telegram, .contact-wrap, .partners-wrap { padding: 60px 24px; }
     .telegram-inner { grid-template-columns: 1fr; padding: 40px 32px; }
     .qr-box { display: none; }
     footer { padding: 32px 24px; flex-direction: column; text-align: center; }
+    .about-pillars { grid-template-columns: 1fr; }
   }
 
-  /* FADE IN ANIMATION */
-  .fade-up {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 0.7s ease forwards;
-  }
-
-  @keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
-  }
-
+  .fade-up { opacity: 0; transform: translateY(30px); animation: fadeUp 0.7s ease forwards; }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
   .delay-1 { animation-delay: 0.1s; }
   .delay-2 { animation-delay: 0.2s; }
   .delay-3 { animation-delay: 0.3s; }
@@ -721,19 +183,16 @@
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
 
-<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
     <img src="AI_Logo.png" alt="AI Community Niedersachsen">
-    <div class="nav-logo-text">
-      AI Community
-      <span>Niedersachsen</span>
-    </div>
+    <div class="nav-logo-text">AI Community <span>Niedersachsen</span></div>
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#events">Events</a></li>
     <li><a href="#community">Community</a></li>
+    <li><a href="#contact">Contact</a></li>
     <li><a href="https://t.me/AICommunityNiedersachsen" target="_blank" class="nav-cta">Join Telegram →</a></li>
   </ul>
 </nav>
@@ -741,15 +200,13 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-badge fade-up">Lower Saxony · Germany</div>
+    <div class="hero-badge fade-up">Braunschweig · Niedersachsen · Germany</div>
     <img src="AI_Logo.png" alt="Logo" class="hero-logo fade-up delay-1">
-    <h1 class="fade-up delay-2">
-      <span class="grad">AI Community</span>
-    </h1>
+    <h1 class="fade-up delay-2"><span class="grad">AI Community</span></h1>
     <div class="hero-region fade-up delay-3">Niedersachsen</div>
     <p class="hero-desc fade-up delay-3">
-      A bilingual community for AI enthusiasts, builders, and curious minds across Lower Saxony.
-      Grow, connect, and exchange ideas — from Braunschweig to the whole region.
+      A community for AI enthusiasts, builders, and curious minds across Lower Saxony.
+      Connect, learn, and build together.
     </p>
     <div class="hero-pills fade-up delay-4">
       <span class="pill pill-cyan">Connect</span>
@@ -761,37 +218,20 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.04 9.607c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.462c.537-.194 1.006.13.903.615z"/></svg>
         Join on Telegram
       </a>
-      <a href="#events" class="btn-secondary">Past Events ↓</a>
     </div>
-  </div>
-  <div class="scroll-hint">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
   </div>
 </section>
 
 <!-- STATS -->
 <div class="stats-bar">
-  <div class="stat">
-    <div class="stat-num">3+</div>
-    <div class="stat-label">Events held</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">2</div>
-    <div class="stat-label">Cities active</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">100%</div>
-    <div class="stat-label">Free entry</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">∞</div>
-    <div class="stat-label">Curiosity required</div>
-  </div>
+  <div class="stat"><div class="stat-num">6</div><div class="stat-label">Events held</div></div>
+  <div class="stat"><div class="stat-num">61</div><div class="stat-label">Total participants</div></div>
+  <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Free entry</div></div>
+  <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Curiosity required</div></div>
 </div>
 
 <!-- ABOUT -->
-<section class="about" id="about">
+<section class="section-wrap" id="about">
   <div class="section-tag">Who we are</div>
   <h2 class="section-title">AI for everyone in<br>Lower Saxony</h2>
   <div class="about-grid">
@@ -801,26 +241,10 @@
       <p>The community runs in English and German, welcoming both locals and international members living in Lower Saxony.</p>
     </div>
     <div class="about-pillars">
-      <div class="pillar-card">
-        <span class="pillar-icon">🤝</span>
-        <h3>Connect</h3>
-        <p>Meet AI enthusiasts, professionals, and builders across the region.</p>
-      </div>
-      <div class="pillar-card">
-        <span class="pillar-icon">🧠</span>
-        <h3>Learn</h3>
-        <p>Hands-on workshops and talks on real tools and real use cases.</p>
-      </div>
-      <div class="pillar-card">
-        <span class="pillar-icon">🔨</span>
-        <h3>Build</h3>
-        <p>Experiment with AI together — from simple demos to full systems.</p>
-      </div>
-      <div class="pillar-card">
-        <span class="pillar-icon">🌍</span>
-        <h3>Grow</h3>
-        <p>A community that expands with you, bilingual and open to all.</p>
-      </div>
+      <div class="pillar-card"><span class="pillar-icon">🤝</span><h3>Connect</h3><p>Meet AI enthusiasts, professionals, and builders across the region.</p></div>
+      <div class="pillar-card"><span class="pillar-icon">🧠</span><h3>Learn</h3><p>Hands-on workshops and talks on real tools and real use cases.</p></div>
+      <div class="pillar-card"><span class="pillar-icon">🔨</span><h3>Build</h3><p>Experiment with AI together — from simple demos to full systems.</p></div>
+      <div class="pillar-card"><span class="pillar-icon">🌍</span><h3>Grow</h3><p>A community that expands with you, bilingual and open to all.</p></div>
     </div>
   </div>
 </section>
@@ -828,54 +252,105 @@
 <div class="divider"></div>
 
 <!-- EVENTS -->
-<section class="events" id="events">
-  <div class="section-tag">Past Events</div>
+<section class="section-wrap" id="events">
+  <div class="section-tag">Events</div>
   <h2 class="section-title">What we've built together</h2>
-
   <div class="events-grid">
 
     <div class="event-card">
-      <div class="event-date">February 13, 2026 · Braunschweig</div>
-      <div class="event-title">How RAG Shapes What LLM Thinks</div>
-      <div class="event-desc">A hands-on workshop building a complete RAG system from scratch — text extraction, chunking, embeddings, semantic search, and prompting. With FastEmbed and SQLite.</div>
+      <div class="event-date">February 27, 2026 · Braunschweig</div>
+      <div class="event-title">🦞 OpenClaw Test Session</div>
+      <div class="event-desc">Every participant built their own OpenClaw bot via Terminal & Docker, connected it with ChatGPT and created a Telegram bot with Deepgram voice integration.</div>
       <div class="event-meta">
         <span class="event-tag event-tag-cyan">Workshop</span>
-        <span class="event-tag">RAG</span>
-        <span class="event-tag">BLSK Campus Lounge</span>
+        <span class="event-tag">OpenClaw · LLM</span>
+        <span class="event-tag">Trafohub</span>
       </div>
+      <div class="event-links">
+        <a href="https://www.meetup.com/global-ai-braunschweig/events/313416504/" target="_blank" class="event-link">Meetup ↗</a>
+        <a href="https://www.linkedin.com/posts/viktor-weber_globalaibraunschweig-openclaw-aicommunity-activity-7434107727108501504-eJuT" target="_blank" class="event-link">LinkedIn ↗</a>
+      </div>
+      <div class="event-participants">👥 11 participants · Speaker: Omar Ezzat</div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date">February 13, 2026 · Braunschweig</div>
+      <div class="event-title">🔬 How RAG Shapes What LLM Thinks</div>
+      <div class="event-desc">First full workshop: building a complete RAG system from scratch — text extraction, chunking, embeddings, semantic search, and prompting with FastEmbed & SQLite.</div>
+      <div class="event-meta">
+        <span class="event-tag event-tag-cyan">Workshop</span>
+        <span class="event-tag">RAG · LLM</span>
+        <span class="event-tag">Trafohub</span>
+      </div>
+      <div class="event-links">
+        <a href="https://www.meetup.com/global-ai-braunschweig/events/313020275/" target="_blank" class="event-link">Meetup ↗</a>
+        <a href="https://www.linkedin.com/posts/viktor-weber_globalaibraunschweig-rag-llm-activity-7429034296591593472-hBoV" target="_blank" class="event-link">LinkedIn ↗</a>
+      </div>
+      <div class="event-participants">👥 8 participants · Speaker: Zoryana Paliy</div>
     </div>
 
     <div class="event-card">
       <div class="event-date">December 9, 2025 · Braunschweig</div>
       <div class="event-title">🎅 Ho-Ho-High Tech: RAG & WebAI at the North Pole</div>
-      <div class="event-desc">Festive Nikolaus special with two talks: Sergio Peral on RAG for context-aware AI, and Johannes Kolbe on WebAI for local, privacy-first AI deployment.</div>
+      <div class="event-desc">Festive Nikolaus special: Sergio Peral on RAG for context-aware AI, Johannes Kolbe on WebAI for local privacy-first AI deployment.</div>
       <div class="event-meta">
         <span class="event-tag event-tag-cyan">Meetup</span>
         <span class="event-tag">RAG · WebAI</span>
         <span class="event-tag">Trafohub</span>
       </div>
+      <div class="event-links">
+        <a href="https://www.meetup.com/global-ai-braunschweig/events/312280260/" target="_blank" class="event-link">Meetup ↗</a>
+        <a href="https://www.linkedin.com/posts/viktor-weber_globalaibraunschweig-globalaibraunschweig-activity-7404832871447678976-u2-0" target="_blank" class="event-link">LinkedIn ↗</a>
+      </div>
+      <div class="event-participants">👥 6 participants · Speakers: Sergio Peral, Johannes Kolbe</div>
     </div>
 
     <div class="event-card">
       <div class="event-date">September 4, 2025 · Braunschweig</div>
-      <div class="event-title">Connect & Create: AI Community Gathering</div>
-      <div class="event-desc">Two talks on AI topics with open discussions and networking. A growing evening with Braunschweig's AI scene — new faces, new ideas.</div>
+      <div class="event-title">🚀 Connect & Create: AI Community Gathering</div>
+      <div class="event-desc">Keynote on natural language & AI, AI Quiz Challenge, Creative Break and Small Group Discussion. A growing evening with Braunschweig's AI scene.</div>
       <div class="event-meta">
         <span class="event-tag event-tag-cyan">Meetup</span>
-        <span class="event-tag">Networking</span>
+        <span class="event-tag">NLP · AI</span>
         <span class="event-tag">BLSK Campus Lounge</span>
       </div>
+      <div class="event-links">
+        <a href="https://www.meetup.com/global-ai-braunschweig/events/310226636/" target="_blank" class="event-link">Meetup ↗</a>
+        <a href="https://www.linkedin.com/posts/viktor-weber_globalaibraunschweig-connectandcreate-aicommunity-activity-7370802275428249600-Of7a" target="_blank" class="event-link">LinkedIn ↗</a>
+      </div>
+      <div class="event-participants">👥 10 participants · Speaker: Zoryana Paliy</div>
     </div>
 
     <div class="event-card">
       <div class="event-date">July 4, 2025 · Braunschweig</div>
-      <div class="event-title">Global AI Braunschweig — Chapter 2</div>
-      <div class="event-desc">Semantic AI with Christian Weyer (Thinktecture AG), and "The Hunt for Digital Ghosts" with Johannes Kolbe — LLMs, llms.txt, and MCP told through wizards and fairies.</div>
+      <div class="event-title">🚀 Global AI Braunschweig — Chapter 2</div>
+      <div class="event-desc">Semantic AI with Christian Weyer (Thinktecture AG) and "The Hunt for Digital Ghosts" with Johannes Kolbe — LLMs, llms.txt and MCP told through wizards and fairies.</div>
       <div class="event-meta">
         <span class="event-tag event-tag-cyan">Meetup</span>
-        <span class="event-tag">LLM · Semantic AI</span>
+        <span class="event-tag">Semantic AI · LLM</span>
         <span class="event-tag">BLSK Campus Lounge</span>
       </div>
+      <div class="event-links">
+        <a href="https://www.meetup.com/global-ai-braunschweig/events/307999165/" target="_blank" class="event-link">Meetup ↗</a>
+        <a href="https://www.linkedin.com/posts/viktor-weber_globalaibraunschweig-aicommunity-artificialintelligence-activity-7347915593527812096-hgpY" target="_blank" class="event-link">LinkedIn ↗</a>
+      </div>
+      <div class="event-participants">👥 16 participants · Speakers: Christian Weyer, Johannes Kolbe</div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-date">May 16, 2025 · Braunschweig</div>
+      <div class="event-title">🚀 Global AI Braunschweig — Kick-off</div>
+      <div class="event-desc">The very first Global AI Braunschweig event. Focus on getting to know each other, open exchange, and laying the foundation for a local AI community.</div>
+      <div class="event-meta">
+        <span class="event-tag event-tag-cyan">Meetup</span>
+        <span class="event-tag">Community Building</span>
+        <span class="event-tag">TU Braunschweig</span>
+      </div>
+      <div class="event-links">
+        <a href="https://www.meetup.com/global-ai-braunschweig/events/307416400/" target="_blank" class="event-link">Meetup ↗</a>
+        <a href="https://www.linkedin.com/posts/viktor-weber_ai-artificialintelligence-generativeai-activity-7330132960932753408-GkSW" target="_blank" class="event-link">LinkedIn ↗</a>
+      </div>
+      <div class="event-participants">👥 10 participants · Speakers: Viktor Weber, Hafiz Usman</div>
     </div>
 
   </div>
@@ -883,28 +358,84 @@
 
 <div class="divider"></div>
 
-<!-- TELEGRAM CTA -->
+<!-- TELEGRAM -->
 <section class="telegram" id="community">
   <div class="telegram-inner">
     <div class="telegram-content">
       <div class="section-tag">Join the community</div>
       <h2>Everything happens on Telegram</h2>
-      <p>Our Telegram channel is where the community lives — resources, tools, projects, events, career opportunities, and daily conversations about AI in Lower Saxony and beyond.</p>
+      <p>Our Telegram channel is where the community lives — resources, tools, projects, events, and daily conversations about AI in Lower Saxony and beyond.</p>
       <div class="telegram-channels">
         <div class="channel-item">Learning resources & tutorials</div>
         <div class="channel-item">AI tools & experiments</div>
         <div class="channel-item">Local event announcements</div>
         <div class="channel-item">Career & project opportunities</div>
-        <div class="channel-item">Open discussions in EN & DE</div>
+        <div class="channel-item">Open discussions</div>
       </div>
-      <a href="https://t.me/AICommunityNiedersachsen" target="_blank" class="btn-primary" style="display: inline-flex;">
+      <a href="https://t.me/AICommunityNiedersachsen" target="_blank" class="btn-primary" style="display:inline-flex;">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-2.04 9.607c-.148.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.462c.537-.194 1.006.13.903.615z"/></svg>
         @AICommunityNiedersachsen
       </a>
     </div>
     <div class="qr-box">
-      <img src="t_me-AICommunityNiedersachsen__2_.png" alt="QR Code Telegram">
+      <img src="QR.jpeg" alt="QR Code Telegram">
       <div class="qr-label">Scan to join</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- NETWORK PARTNERS -->
+<section class="partners-wrap" id="partners">
+  <div class="section-tag">Network</div>
+  <h2 class="section-title">Partners & Supporters</h2>
+  <div class="partners-grid">
+
+    <div class="partner-placeholder">
+      <span class="partner-role">Coming soon</span>
+      <span class="partner-name">Your organization?</span>
+      <span class="partner-desc">We're building our regional network. Interested in partnering? Get in touch.</span>
+    </div>
+
+    <div class="partner-placeholder">
+      <span class="partner-role">Coming soon</span>
+      <span class="partner-name">Your organization?</span>
+      <span class="partner-desc">We're open to collaborations with companies, communities, and institutions across Lower Saxony.</span>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section class="contact-wrap" id="contact">
+  <div class="section-tag">Get in touch</div>
+  <h2 class="section-title">Contact</h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-row">
+        <span class="contact-label">Location</span>
+        <span class="contact-value">Braunschweig · Niedersachsen · Germany</span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">Community</span>
+        <span class="contact-value"><a href="https://t.me/AICommunityNiedersachsen" target="_blank">t.me/AICommunityNiedersachsen</a></span>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">Organizer</span>
+        <span class="contact-value">
+          <a href="https://www.linkedin.com/in/viktor-weber" target="_blank" style="display:inline-flex;align-items:center;gap:8px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;color:#00e5c8"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            Viktor Weber
+          </a>
+        </span>
+      </div>
+    </div>
+    <div class="contact-text">
+      <p>Have questions, ideas, or want to collaborate? Whether you'd like to speak at an event, partner with the community, or simply learn more about what we do — reach out directly via LinkedIn or join the Telegram channel.</p>
+      <p>We're always open to new speakers, topics, and connections across Lower Saxony.</p>
     </div>
   </div>
 </section>
@@ -915,12 +446,7 @@
     <img src="AI_Logo.png" alt="Logo">
     <span>AI Community Niedersachsen</span>
   </div>
-  <ul class="footer-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#events">Events</a></li>
-    <li><a href="https://t.me/AICommunityNiedersachsen" target="_blank">Telegram</a></li>
-  </ul>
-  <div class="footer-copy">© 2026 AI Community Niedersachsen</div>
+  <div class="footer-copy">© 2026 AI Community Niedersachsen · Founded by <a href="https://www.linkedin.com/in/viktor-weber" target="_blank">Viktor Weber</a></div>
 </footer>
 
 </body>
