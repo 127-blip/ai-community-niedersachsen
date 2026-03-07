@@ -32,6 +32,7 @@
   .orb { position: fixed; border-radius: 50%; filter: blur(120px); opacity: 0.12; pointer-events: none; z-index: 0; }
   .orb-1 { width: 600px; height: 600px; background: var(--cyan); top: -200px; left: -200px; }
   .orb-2 { width: 500px; height: 500px; background: var(--pink); bottom: -100px; right: -100px; }
+  @media (max-width: 768px) { .orb { display: none; } }
 
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; background: rgba(7,13,31,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
   .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
@@ -431,17 +432,17 @@
   <h2 class="section-title">Partners & Supporters</h2>
   <div style="display:flex;gap:20px;flex-wrap:wrap;margin-top:48px;align-items:stretch;">
 
+    <a href="https://www.meetup.com/global-ai-braunschweig/" target="_blank" style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px;flex:1;min-width:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-decoration:none;transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='rgba(0,229,200,0.3)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.transform='translateY(0)'">
+      <img src="global-ai-braunschweig.png" alt="Global AI Braunschweig" style="width:80px;height:80px;border-radius:12px;object-fit:contain;">
+      <span style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:white;text-align:center;">Global AI Braunschweig</span>
+      <span style="font-size:11px;color:var(--cyan);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;">Home Chapter</span>
+    </a>
+
     <a href="https://ai-meetup.de" target="_blank" style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px;flex:1;min-width:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-decoration:none;transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='rgba(0,229,200,0.3)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.transform='translateY(0)'">
       <img src="ai-meetup-logo.png" alt="AI Meetup Hannover" style="width:160px;height:80px;border-radius:8px;object-fit:contain;">
       <span style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:white;text-align:center;">ai-meetup.de</span>
       <span style="font-size:11px;color:var(--cyan);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;">Network Partner</span>
     </a>
-
-    <div style="background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.1);border-radius:16px;padding:32px;flex:1;min-width:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;">
-      <span style="font-size:28px;opacity:0.3;">+</span>
-      <span style="font-family:'Syne',sans-serif;font-size:15px;font-weight:600;color:var(--muted);text-align:center;">Your organization?</span>
-      <span style="font-size:12px;color:var(--muted);opacity:0.6;font-style:italic;text-align:center;">Get in touch</span>
-    </div>
 
   </div>
 </section>
@@ -460,7 +461,7 @@
       </div>
       <div class="contact-row">
         <span class="contact-label">Email</span>
-        <span class="contact-value"><a href="/cdn-cgi/l/email-protection#1d7e7273697c7e695d7c74307e72707068737469643073747879786f6e7c7e756e7873337978"><span class="__cf_email__" data-cfemail="c4a7abaab0a5a7b084a5ade9a7aba9a9b1aaadb0bde9aaada1a0a1b6b7a5a7acb7a1aaeaa0a1">[email&#160;protected]</span></a></span>
+        <span class="contact-value"><a href="mailto:contact@ai-community-niedersachsen.de">contact&#64;ai-community-niedersachsen.de</a></span>
       </div>
       <div class="contact-row">
         <span class="contact-label">Community</span>
