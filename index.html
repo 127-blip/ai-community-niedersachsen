@@ -4,18 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Community Niedersachsen</title>
-<meta name="description" content="A community for AI enthusiasts, builders, and curious minds across Lower Saxony. Connect, learn, and build together.">
-<meta property="og:title" content="AI Community Niedersachsen">
-<meta property="og:description" content="A community for AI enthusiasts, builders, and curious minds across Lower Saxony. Connect, learn, and build together.">
-<meta property="og:image" content="https://ai-community-niedersachsen.de/social-preview.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:url" content="https://ai-community-niedersachsen.de">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://ai-community-niedersachsen.de/social-preview.png">
-<link rel="icon" type="image/png" href="AI_Logo.png">
-<link rel="apple-touch-icon" href="AI_Logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -36,7 +24,6 @@
   .orb { position: fixed; border-radius: 50%; filter: blur(120px); opacity: 0.12; pointer-events: none; z-index: 0; }
   .orb-1 { width: 600px; height: 600px; background: var(--cyan); top: -200px; left: -200px; }
   .orb-2 { width: 500px; height: 500px; background: var(--pink); bottom: -100px; right: -100px; }
-  @media (max-width: 768px) { .orb { display: none; } }
 
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; background: rgba(7,13,31,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
   .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
@@ -174,9 +161,6 @@
   @media (max-width: 768px) {
     nav { padding: 16px 24px; }
     .nav-links { display: none; }
-    .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 77px; left: 0; right: 0; background: rgba(7,13,31,0.97); padding: 24px; gap: 20px; border-bottom: 1px solid var(--border); z-index: 99; }
-    .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-    .hamburger span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
     .stats-bar { gap: 32px; padding: 24px; }
     .section-wrap, .telegram, .contact-wrap, .partners-wrap { padding: 60px 24px; }
     .telegram-inner { grid-template-columns: 1fr; padding: 40px 32px; }
@@ -184,10 +168,6 @@
     footer { padding: 32px 24px; flex-direction: column; text-align: center; }
     .about-pillars { grid-template-columns: 1fr; }
   }
-  .hamburger { display: none; }
-  .event-card.hidden { display: none; }
-  .show-more-btn { display: block; margin: 32px auto 0; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 12px 32px; font-size: 14px; font-weight: 600; color: var(--text); cursor: pointer; transition: border-color 0.2s, color 0.2s; font-family: 'DM Sans', sans-serif; }
-  .show-more-btn:hover { border-color: rgba(0,229,200,0.3); color: var(--cyan); }
 
   .fade-up { opacity: 0; transform: translateY(30px); animation: fadeUp 0.7s ease forwards; }
   @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
@@ -208,17 +188,13 @@
     <img src="AI_Logo.png" alt="AI Community Niedersachsen">
     <div class="nav-logo-text">AI Community <span>Niedersachsen</span></div>
   </a>
-  <ul class="nav-links" id="nav-links">
+  <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#events">Events</a></li>
     <li><a href="#community">Community</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="https://www.meetup.com/global-ai-braunschweig/" target="_blank">Meetup ↗</a></li>
     <li><a href="https://t.me/AICommunityNiedersachsen" target="_blank" class="nav-cta">Join Telegram →</a></li>
   </ul>
-  <div class="hamburger" id="hamburger" onclick="document.getElementById('nav-links').classList.toggle('open')">
-    <span></span><span></span><span></span>
-  </div>
 </nav>
 
 <!-- HERO -->
@@ -253,7 +229,6 @@
   <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Free entry</div></div>
   <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Curiosity required</div></div>
 </div>
-<div style="text-align:center;font-size:11px;color:var(--muted);padding:10px;letter-spacing:0.08em;">Updated March 2026</div>
 
 <!-- ABOUT -->
 <section class="section-wrap" id="about">
@@ -269,7 +244,7 @@
       <div class="pillar-card"><span class="pillar-icon">🤝</span><h3>Connect</h3><p>Meet AI enthusiasts, professionals, and builders across the region.</p></div>
       <div class="pillar-card"><span class="pillar-icon">🧠</span><h3>Learn</h3><p>Hands-on workshops and talks on real tools and real use cases.</p></div>
       <div class="pillar-card"><span class="pillar-icon">🔨</span><h3>Build</h3><p>Experiment with AI together — from simple demos to full systems.</p></div>
-      <div class="pillar-card"><span class="pillar-icon">🌍</span><h3>Grow</h3><p>A community that expands with you, open to all.</p></div>
+      <div class="pillar-card"><span class="pillar-icon">🌍</span><h3>Grow</h3><p>A community that expands with you, bilingual and open to all.</p></div>
     </div>
   </div>
 </section>
@@ -277,25 +252,28 @@
 <div class="divider"></div>
 
 <!-- UPCOMING -->
-<section class="section-wrap" id="events">
+<section class="section-wrap" id="upcoming">
   <div class="section-tag">Upcoming</div>
   <h2 class="section-title">Next Event</h2>
-  <div style="background:linear-gradient(135deg,rgba(0,229,200,0.06),rgba(79,140,255,0.06));border:1px solid rgba(0,229,200,0.15);border-radius:20px;padding:40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-top:32px;">
-    <div>
-      <div style="font-size:11px;color:var(--cyan);text-transform:uppercase;letter-spacing:0.15em;font-weight:700;margin-bottom:12px;">Coming soon</div>
-      <div style="font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:white;margin-bottom:8px;">Next workshop in planning</div>
-      <div style="font-size:15px;color:var(--muted);">📍 Braunschweig · Free entry · Details to follow on Telegram</div>
+  <div style="background:var(--card);border:1px solid rgba(0,229,200,0.2);border-radius:20px;padding:40px;margin-top:40px;position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--pink));"></div>
+    <div style="font-size:11px;color:var(--cyan);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;margin-bottom:12px;">April 9, 2026 · Braunschweig</div>
+    <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:white;margin-bottom:12px;">💻 Vibe Coding with Claude Code</div>
+    <p style="color:var(--muted);font-size:14px;line-height:1.7;max-width:600px;margin-bottom:20px;">What does it look like when a non-developer builds a real HTML page live — just with prompts and iteration? Then a developer takes the exact same file and shows what they'd do differently. Same tool. Two perspectives.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;">
+      <span class="event-tag event-tag-cyan">Workshop</span>
+      <span class="event-tag">Claude Code · AI Tools</span>
+      <span class="event-tag">Trafohub · Ideen-Dschungel</span>
     </div>
-    <a href="https://t.me/AICommunityNiedersachsen" target="_blank" class="btn-primary" style="display:inline-flex;">
-      Stay updated →
-    </a>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:20px;">🕐 17:45 · 📍 Trafohub, Braunschweig · 🎟️ Free · Speakers: Viktor Weber, Tom Prokscha (Kosatec)</div>
+    <a href="https://luma.com/k4yb0l1i" target="_blank" class="btn-primary" style="display:inline-flex;font-size:13px;padding:10px 24px;">Register on Luma →</a>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- PAST EVENTS -->
-<section class="section-wrap" id="past-events">
+<!-- EVENTS -->
+<section class="section-wrap" id="events">
   <div class="section-tag">Events</div>
   <h2 class="section-title">What we've built together</h2>
   <div class="events-grid">
@@ -348,7 +326,7 @@
       <div class="event-participants">👥 6 participants · Speakers: Sergio Peral, Johannes Kolbe</div>
     </div>
 
-    <div class="event-card hidden">
+    <div class="event-card">
       <div class="event-date">September 4, 2025 · Braunschweig</div>
       <div class="event-title">🚀 Connect & Create: AI Community Gathering</div>
       <div class="event-desc">Keynote on natural language & AI, AI Quiz Challenge, Creative Break and Small Group Discussion. A growing evening with Braunschweig's AI scene.</div>
@@ -364,7 +342,7 @@
       <div class="event-participants">👥 10 participants · Speaker: Zoryana Paliy</div>
     </div>
 
-    <div class="event-card hidden">
+    <div class="event-card">
       <div class="event-date">July 4, 2025 · Braunschweig</div>
       <div class="event-title">🚀 Global AI Braunschweig — Chapter 2</div>
       <div class="event-desc">Semantic AI with Christian Weyer (Thinktecture AG) and "The Hunt for Digital Ghosts" with Johannes Kolbe — LLMs, llms.txt and MCP told through wizards and fairies.</div>
@@ -380,7 +358,7 @@
       <div class="event-participants">👥 16 participants · Speakers: Christian Weyer, Johannes Kolbe</div>
     </div>
 
-    <div class="event-card hidden">
+    <div class="event-card">
       <div class="event-date">May 16, 2025 · Braunschweig</div>
       <div class="event-title">🚀 Global AI Braunschweig — Kick-off</div>
       <div class="event-desc">The very first Global AI Braunschweig event. Focus on getting to know each other, open exchange, and laying the foundation for a local AI community.</div>
@@ -397,7 +375,6 @@
     </div>
 
   </div>
-  <button class="show-more-btn" onclick="document.querySelectorAll('.event-card.hidden').forEach(e=>e.classList.remove('hidden'));this.style.display='none'">Show all 6 events ↓</button>
 </section>
 
 <div class="divider"></div>
@@ -434,18 +411,18 @@
 <section class="partners-wrap" id="partners">
   <div class="section-tag">Network</div>
   <h2 class="section-title">Partners & Supporters</h2>
-  <div style="display:flex;gap:20px;flex-wrap:wrap;margin-top:48px;align-items:stretch;">
+  <div class="partners-grid">
 
-    <a href="https://www.meetup.com/global-ai-braunschweig/" target="_blank" style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px;flex:1;min-width:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-decoration:none;transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='rgba(0,229,200,0.3)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.transform='translateY(0)'">
-      <img src="global-ai-braunschweig.png" alt="Global AI Braunschweig" style="width:80px;height:80px;border-radius:12px;object-fit:contain;">
-      <span style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:white;text-align:center;">Global AI Braunschweig</span>
-      <span style="font-size:11px;color:var(--cyan);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;">Home Chapter</span>
+    <a href="https://www.meetup.com/global-ai-braunschweig/" target="_blank" class="partner-card">
+      <span class="partner-role">Home Chapter</span>
+      <span class="partner-name">Global AI Braunschweig</span>
+      <span class="partner-desc">The local Meetup chapter affiliated with the Global AI Community network — where most events are hosted.</span>
     </a>
 
-    <a href="https://ai-meetup.de" target="_blank" style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px;flex:1;min-width:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-decoration:none;transition:border-color 0.2s,transform 0.2s;" onmouseover="this.style.borderColor='rgba(0,229,200,0.3)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.transform='translateY(0)'">
-      <img src="ai-meetup-logo.png" alt="AI Meetup Hannover" style="width:160px;height:80px;border-radius:8px;object-fit:contain;">
-      <span style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:white;text-align:center;">ai-meetup.de</span>
-      <span style="font-size:11px;color:var(--cyan);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;">Network Partner</span>
+    <a href="https://ai-meetup.de" target="_blank" class="partner-card">
+      <span class="partner-role">Network Partner</span>
+      <span class="partner-name">ai-meetup.de</span>
+      <span class="partner-desc">Hannover's AI community — regional partner across Lower Saxony.</span>
     </a>
 
   </div>
@@ -462,10 +439,6 @@
       <div class="contact-row">
         <span class="contact-label">Location</span>
         <span class="contact-value">Braunschweig · Niedersachsen · Germany</span>
-      </div>
-      <div class="contact-row">
-        <span class="contact-label">Email</span>
-        <span class="contact-value"><a href="mailto:contact@ai-community-niedersachsen.de">contact&#64;ai-community-niedersachsen.de</a></span>
       </div>
       <div class="contact-row">
         <span class="contact-label">Community</span>
@@ -494,4 +467,8 @@
     <img src="AI_Logo.png" alt="Logo">
     <span>AI Community Niedersachsen</span>
   </div>
-  <div class="footer-c
+  <div class="footer-copy">© 2026 AI Community Niedersachsen · Founded by <a href="https://www.linkedin.com/in/viktor-weber" target="_blank">Viktor Weber</a></div>
+</footer>
+
+</body>
+</html>
